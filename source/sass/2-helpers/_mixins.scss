@@ -1,0 +1,22 @@
+@mixin sectionPadding{
+  padding: 60px 0;
+}
+  
+
+@mixin media-max($width) {
+    @media only screen and (max-width: $width) {
+        @content;
+    }
+}
+
+@mixin media-min($width) {
+  @media only screen and (min-width: $width) {
+      @content;
+  }
+}
+
+@mixin media-orientation($orientation) {
+  @media only screen and (orientation: $orientation) {
+      @content;
+  }
+}

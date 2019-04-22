@@ -1,0 +1,314 @@
+.background {
+    position: fixed;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    //background-image: url("../img/bg2.jpg");
+    background-size: cover;
+    z-index: 0;
+    filter: blur(9px) brightness(0.7);
+    transform: scale(1);
+    opacity: 0;
+    transition: 1.5s ease;
+    &.unfocused{
+        transition: 0.4s ease;
+        filter: blur(40px) brightness(0.7) !important;
+    }
+}
+
+.no-select {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+body {
+    background: white;
+    display: flex;
+    justify-content: center;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    /* remove scrollbar space */
+    background: transparent;
+    /* optional: just make scrollbar invisible */
+}
+
+.galileo-logo {
+    position: fixed;
+    bottom: 0;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    background: white;
+    width: 100%;
+    z-index: 1;
+    margin-bottom: 10px;
+    transition: 0.4s ease;
+    img {
+        width: 200px;
+        height: 78px;
+        filter: grayscale(100%);
+        @include media-max(500px) {
+            width: 133.3px;
+            height: 52px;
+        }
+    }
+}
+
+.copyright {
+    position: fixed;
+    bottom: 130px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    color: black;
+    z-index: 1;
+    //text-shadow: 0 0 15px rgba(0, 0, 0, 0.34);
+    transition: 0.4s ease;
+    @include media-max(650px) {
+        font-size: 12px;
+    }
+    @include media-max(500px) {
+        font-size: 11px;
+    }
+}
+
+.back-container {
+    position: fixed;
+    bottom: 40px;
+    display: flex; //width: 100%;
+    z-index: 1; //background: pink;
+    left: 0;
+    .btn-back {
+        margin-left: 40px; //margin-right: 40px;
+        transform: translateX(-85px);
+        transition: 0.3s ease;
+        background: rgb(26, 115, 232);
+        color: white;
+        &:hover,
+        &:active,
+        &:focus {
+            transform: scale(1.2) !important;
+            color: white;
+        }
+    }
+}
+
+.dynamic-information {
+    padding: 15px 15px 70px 15px;
+    position: relative;
+    color: white;
+    display: flex;
+    z-index: 1;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(-40px);
+    transition: 0.4s ease;
+    max-width: 900px;
+    width: 100%;
+    align-items: center;
+    .section-title {
+        display: flex;
+        padding-left: 24px;
+        padding-right: 24px;
+        font-size: 34px;
+        font-weight: bold;
+        text-transform: capitalize;
+        width: 100%;
+        justify-content: flex-start;
+        @include media-max(650px) {
+            font-size: 30px;
+        }
+        @include media-max(500px) {
+            font-size: 26px;
+        }
+    }
+    .section-body {
+        display: flex;
+        padding-left: 24px;
+        padding-right: 24px;
+        flex-direction: column;
+        width: 100%;
+        .subtitle {
+            font-size: 24px;
+            display: flex;
+            margin-top: 18px;
+            @include media-max(650px) {
+                font-size: 20px;
+            }
+            @include media-max(500px) {
+                font-size: 16px;
+            }
+        }
+        p {
+            padding: 15px 15px;
+            text-align: justify;
+            //background: black;
+            color: white;
+            margin: 5px 0;
+            @include media-max(650px) {
+                font-size: 12px;
+            }
+            @include media-max(500px) {
+                font-size: 11px;
+            }
+        }
+    }
+}
+
+.title-container {
+    position: fixed;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    transition: 0.4s ease;
+    .inner-container {
+        position: relative;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        .title-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 600px;
+            //background: pink;
+            height: auto;
+            padding: 50px 50px;
+            justify-content: center;
+            margin-top: -50px;
+            &:hover,
+            &:active,
+            &:focus {
+                .title {
+                    //border-bottom: 7px solid white;
+                    //transform: translateY(-10px);
+                }
+                .title-menu {
+                    //opacity: 1;
+                    //transform: translateY(0);
+                    user-select: initial;
+                    -moz-user-select: none;
+                    -khtml-user-select: none;
+                    -webkit-user-select: none;
+                    -o-user-select: none;
+                }
+                @include media-max(500px) {
+                    .title {
+                        //border-bottom: 7px solid white;
+                        transform: translateY(-10px);
+                    }
+                }
+            }
+            .title {
+                .innovation-logo{
+                    width: 700px;
+                    height: auto;
+                    opacity: 0;
+                    transition: 0.3s ease;
+                    @include media-max(750px) {
+                        width: 400px;
+                    }
+                    @include media-max(650px) {
+                        width: 300px;
+                    }
+                    @include media-max(380px) {
+                        width: 200px;
+                    }
+                }
+                transform: translateY(10px);
+                @include media-orientation(portrait){
+                    transform: translateY(-10px);
+                }
+                // display: flex;
+                // flex-direction: column;
+                // align-items: center;
+                color: black;
+                //text-shadow: 0 0 15px rgba(0, 0, 0, 0.34);
+                font-size: 65px;
+                //border-bottom: 0 solid transparent;
+                transition: 0.2s ease; //text-transform: uppercase;
+                font-weight: bold;
+                //font-family: "Roboto Condensed";
+            }
+            .date{
+                color: black;
+                margin-bottom: 20px;
+                font-size: 30px;
+                //font-weight: bold;
+            }
+            .title-menu {
+                display: flex;
+                justify-content: space-between;
+                transition: transform 0.2s ease, opacity 0.2s ease;
+                opacity: 1;
+                //transform: translateY(-40px);
+                @include media-orientation(portrait){
+                    opacity: 1 !important;
+                    transform: translateY(0) !important;
+                }
+                user-select: none;
+                -moz-user-select: none;
+                -khtml-user-select: none;
+                -webkit-user-select: none;
+                -o-user-select: none;
+                width: 658px;
+                flex-wrap: wrap;
+                max-width: 100%;
+                @include media-max(750px) {
+                    width: 580px;
+                }
+                @include media-max(650px) {
+                    width: 400px;
+                }
+                @include media-max(500px) {
+                    width: 280px;
+                }
+                @include media-max(380px) {
+                    width: 205px;
+                }
+                .btn-menu {
+                    padding: 6px 14px;
+                    //box-shadow: 0 0 15px rgba(0, 0, 0, 0.34);
+                    font-size: 15px;
+                    margin: 5px 0;
+                    //font-weight: bold;
+                    background: rgb(26, 115, 232);
+                    color: white;
+                    border-radius: 4px;
+                    text-transform: capitalize;
+                    border-color: rgb(26, 115, 232);
+                    &:hover, &:active, &:focus{
+                        color: white;
+                        background: rgba(26, 115, 232, 0.95);
+                        border-color: transparent;
+                        box-shadow: 0 2px 4px rgba(26, 115, 232, 0.4);
+                    }
+                    @include media-max(650px) {
+                        font-size: 12px;
+                    }
+                    @include media-max(500px) {
+                        font-size: 11px;
+                        padding: 5px 10px;
+                    }
+                    &.pink{
+                        //background: pink !important;
+                    }
+                }
+            }
+        }
+    }
+}
