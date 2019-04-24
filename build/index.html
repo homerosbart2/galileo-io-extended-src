@@ -70,6 +70,11 @@
             
         </span>
     </span>
+    <span id="dynamic-expanded-information" class="dynamic-expanded-information">
+        <span class="section-body">
+            
+        </span>
+    </span>
     <!-- <span id="copyright" class="copyright">© 2019 Laboratorio de Innovacion.</span> -->
     <span id="galileo-logo" class="galileo-logo">
         <img src="assets/img/galileo-logo.png" alt="Universidad Galileo">
@@ -307,6 +312,15 @@
         element.css('z-index', '1');
     }
 
+    function generateExpandedStaff(img_path, name, company, information){
+        var element = $('#dynamic-expanded-information');
+        var html = '';
+        html += '<span class="staff-image">';
+        html += `<img src="${img_path}">`;
+        html += '</span>';
+        element.find('.section-body').html(html);
+    }
+
     function generateStaff(){
         var element = $('#dynamic-information');
         //element.find('.section-title').html('STAFF');
@@ -340,6 +354,15 @@
         element.css('opacity', '1');
         element.css('transform', 'translateY(0)');
         element.css('z-index', '1');
+
+        $('.staff-image').click((event)=>{
+            element = $(event.currentTarget);
+            var image_path = element.find('img').attr('src');
+            var name = element.parent().find('.staff-name').html();
+            var company = element.parent().find('.staff-company').html();
+            var information = element.parent().find('.staff-information').html();
+            generateExpandedStaff(image_path, name, company, information);
+        });
     }
 
     function hideIndex(){

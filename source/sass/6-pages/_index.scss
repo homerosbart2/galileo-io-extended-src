@@ -104,6 +104,11 @@ body {
     }
 }
 
+.dynamic-expanded-information {
+    position: fixed;
+    z-index: 2;
+}
+
 .dynamic-information {
     padding: 15px 15px 70px 15px;
     position: relative;
